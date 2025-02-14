@@ -56,5 +56,33 @@ Good practice -
 
 Use some unique identifiers as the key, so even if you delete the first item, key will be same for other items and first item gets rendered in the ui.
 
+_____________
+
+
+   <ul>
+      <li key="0">1</li>
+      <li key="1">2</li>
+      <li key="2">3</li>
+     </ul>
+
+
+
+If we add new item at the end no issue
+
+
+
+If we add the start - 
+
+
+React add items to start, since key is used as index, the value will still be re used from the previous state as react thinks key is same so let me use the vlaue for that key
+
+
+   <ul>
+      <li key="0">1</li>
+      <li key="1">2</li>
+      <li key="2">3</li>
+ <li key="3"></li>
+     </ul>
+
 
 
