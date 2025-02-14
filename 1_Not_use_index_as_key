@@ -1,0 +1,60 @@
+1. Alway have keys in react in list
+
+Because if update somthing in the list, it know only that node with the key needs to be updated
+
+
+Bad practice -
+
+As we remove item from the array, if we are using index, the. Ion we delete the first item, index of all items get changed
+
+As a result all the items are rendered in the ui again
+
+import React, { useState } from 'react'
+const itms = ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7']
+
+const Test = () => {
+    const [itemState, setItem] = useState(itms)
+
+    const remove = () => {
+        const vals = [...itemState]
+        vals.shift();
+
+        setItem(p => [...vals])
+
+    }
+    return (
+        <>
+            This is the test data
+            <br />
+            list will begin here
+            <br />
+            {
+                itemState.map((data, index) => {
+                    console.log('key is', index)
+                    return (
+                        // bad pratcie
+                        <div key={index}>{data}
+                            <br />
+                        </div>
+
+                    )
+                })
+            }
+            <button onClick={remove}>delete</button>
+        </>
+    )
+}
+
+
+
+export default Test
+
+
+
+
+Good practice -  
+
+Use some unique identifiers as the key, so even if you delete the first item, key will be same for other items and first item gets rendered in the ui.
+
+
+
